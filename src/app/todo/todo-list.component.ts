@@ -11,7 +11,7 @@ export class Todo {
   template: `<div>
                 <h1>{{ name }}</h1>
                 <input [(ngModel)]="input_data" />
-                <button [disabled]="!input_data">Add</button>
+                <button [disabled]="!input_data" (click)="addTodo(input_data)">Add</button>
                 <hr/>
                 <ul class="list-group">
                   <ng-container *ngFor="let todo of getPendingTodos(); let i = index">
@@ -40,5 +40,13 @@ export class TodoList {
       }
     }
     return filtered_todos;
+  }
+
+  public addTodo( task: string ) : void {
+    let todo : Todo = new Todo();
+    todo.task = task;
+    todo.done = false;
+    this.todos.push( todo );
+    this.input_data = "";
   }
 }
