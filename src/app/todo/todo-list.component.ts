@@ -10,8 +10,8 @@ export class Todo {
   inputs: ['name'],
   template: `<div>
                 <h1>{{ name }}</h1>
-                <input #todoInput type="text" (keyup)="0" />
-                <button [disabled]="todoInput.value == ''">Add</button>
+                <input [(ngModel)]="input_data" />
+                <button [disabled]="!input_data">Add</button>
                 <hr/>
                 <ul class="list-group">
                   <ng-container *ngFor="let todo of getPendingTodos(); let i = index">
@@ -24,7 +24,8 @@ export class Todo {
   styles: ['li { text-align: left }']
 })
 export class TodoList {
-  list_name : string = "Todo App";
+  name : string = "Todo App";
+  input_data : string;
   todos : Todo[] = [
     { task: "Buy groceries", done: false },
     { task: "Do laundry", done: false },
