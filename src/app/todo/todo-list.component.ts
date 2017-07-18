@@ -6,8 +6,18 @@ import { Component } from '@angular/core';
                 <h1>Todo App</h1>
                 <input #todoInput type="text" (keyup)="0" />
                 <button [disabled]="todoInput.value == ''">Add</button>
+                <hr/>
+                <ul class="list-group">
+                  <li class="list-group-item">{{ todos[0] }}</li>
+                  <li class="list-group-item">{{ todos[1] }}</li>
+                  <li class="list-group-item">{{ todos[2] }}</li>
+                </ul>
             </div>`
 })
 export class TodoList {
-  todos : string[] = []
+  todos : string[] = [
+    "Buy groceries",
+    "Do laundry",
+    "Dental appointment"
+  ]
 }
