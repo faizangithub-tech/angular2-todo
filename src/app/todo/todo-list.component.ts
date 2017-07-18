@@ -20,7 +20,8 @@ export class Todo {
                     </li>
                   </ng-container>
                 </ul>
-            </div>`
+            </div>`,
+  styles: ['li { text-align: left }']
 })
 export class TodoList {
   list_name : string = "Todo App";
