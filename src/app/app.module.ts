@@ -13,6 +13,6 @@ import { TodoList } from './todo/todo-list.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [TodoList]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,8 +7,9 @@ export class Todo {
 
 @Component({
   selector: 'todo-list',
+  inputs: ['name'],
   template: `<div>
-                <h1>Todo App</h1>
+                <h1>{{ name }}</h1>
                 <input #todoInput type="text" (keyup)="0" />
                 <button [disabled]="todoInput.value == ''">Add</button>
                 <hr/>
@@ -22,6 +23,7 @@ export class Todo {
             </div>`
 })
 export class TodoList {
+  list_name : string = "Todo App";
   todos : Todo[] = [
     { task: "Buy groceries", done: false },
     { task: "Do laundry", done: false },
