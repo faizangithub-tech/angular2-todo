@@ -13,8 +13,8 @@ export class Todo {
                 <button [disabled]="todoInput.value == ''">Add</button>
                 <hr/>
                 <ul class="list-group">
-                  <ng-container *ngFor="let todo of todos; let i = index">
-                    <li *ngIf="!todo.done" class="list-group-item">
+                  <ng-container *ngFor="let todo of getPendingTodos(); let i = index">
+                    <li class="list-group-item">
                       {{i+1}}. {{ todo.task }}
                     </li>
                   </ng-container>
@@ -27,4 +27,14 @@ export class TodoList {
     { task: "Do laundry", done: false },
     { task: "Dental appointment", done: true }
   ]
+
+  public getPendingTodos() : Todo[] {
+    let filtered_todos : Todo[] = [];
+    for (let i=0; i<this.todos.length; i++) {
+      if (!this.todos[i].done) {
+        filtered_todos.push( this.todos[i] );
+      }
+    }
+    return filtered_todos;
+  }
 }
