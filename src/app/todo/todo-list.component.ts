@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+export class Todo {
+  task: string
+  done: boolean
+}
+
 @Component({
   selector: 'todo-list',
   template: `<div>
@@ -8,16 +13,16 @@ import { Component } from '@angular/core';
                 <button [disabled]="todoInput.value == ''">Add</button>
                 <hr/>
                 <ul class="list-group">
-                  <li class="list-group-item">{{ todos[0] }}</li>
-                  <li class="list-group-item">{{ todos[1] }}</li>
-                  <li class="list-group-item">{{ todos[2] }}</li>
+                  <li class="list-group-item">{{ todos[0].task }}</li>
+                  <li class="list-group-item">{{ todos[1].task }}</li>
+                  <li class="list-group-item">{{ todos[2].task }}</li>
                 </ul>
             </div>`
 })
 export class TodoList {
-  todos : string[] = [
-    "Buy groceries",
-    "Do laundry",
-    "Dental appointment"
+  todos : Todo[] = [
+    { task: "Buy groceries", done: false },
+    { task: "Do laundry", done: false },
+    { task: "Dental appointment", done: true }
   ]
 }
