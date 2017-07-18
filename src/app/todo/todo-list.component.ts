@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 
 export class Todo {
   task: string
@@ -8,6 +8,7 @@ export class Todo {
 @Component({
   selector: 'todo-list',
   inputs: ['name'],
+  outputs: ['new_todo_added'],
   template: `<div>
                 <h1>{{ name }}</h1>
                 <input [(ngModel)]="input_data" />
@@ -31,6 +32,7 @@ export class TodoList {
     { task: "Do laundry", done: false },
     { task: "Dental appointment", done: true }
   ]
+  new_todo_added : EventEmitter<string> = new EventEmitter<string>();
 
   public getPendingTodos() : Todo[] {
     let filtered_todos : Todo[] = [];
@@ -48,5 +50,6 @@ export class TodoList {
     todo.done = false;
     this.todos.push( todo );
     this.input_data = "";
+    this.new_todo_added.emit(todo.task);
   }
 }
