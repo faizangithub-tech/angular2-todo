@@ -13,9 +13,9 @@ export class Todo {
                 <button [disabled]="todoInput.value == ''">Add</button>
                 <hr/>
                 <ul class="list-group">
-                  <li class="list-group-item">{{ todos[0].task }}</li>
-                  <li class="list-group-item">{{ todos[1].task }}</li>
-                  <li class="list-group-item">{{ todos[2].task }}</li>
+                  <li *ngFor="let todo of todos; let i = index" class="list-group-item">
+                    {{i+1}}. {{ todo.task }}
+                  </li>
                 </ul>
             </div>`
 })
