@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Todo List App';
+  title = 'To Do list App is simple one!!';
 
   public popup(event) : void {
     let tmp_title = this.title;

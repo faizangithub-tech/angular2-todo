@@ -41,6 +41,14 @@ export class TodoList {
         filtered_todos.push( this.todos[i] );
       }
     }
+
+    for (let i=0; i<this.todos.length; i++) {
+      if (!this.todos[i].done) {
+        filtered_todos.push( this.todos[i] );
+      }
+    }
+
+
     return filtered_todos;
   }
 
@@ -52,4 +60,10 @@ export class TodoList {
     this.input_data = "";
     this.new_todo_added.emit(todo.task);
   }
+
+  public sheikhalam()
+  {
+        console.log("Hii this method is added by mohammad alam!!")
+  }
+
 }
